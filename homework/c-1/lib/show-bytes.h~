@@ -1,0 +1,7 @@
+#ifndef SHOW_BYTES
+#define SHOW_BYTES
+
+void show_bytes(byte_pointer start, int len);
+
+
+#endif
