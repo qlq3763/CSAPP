@@ -1,0 +1,47 @@
+/* You are given the task of writing a procedure int_size_is_32() that yields 1 */
+/* when run on a machine for which an int is 32 bits, and yields 0 otherwise. You are */
+/* not allowed to use the sizeof operator. Here is a first attempt: */
+/* 1 /\* The following code does not run properly on some machines *\/ */
+/* 2 int bad_int_size_is_32() { */
+/* 3 /\* Set most significant bit (msb) of 32-bit machine *\/ */
+/* 4 int set_msb = 1 << 31; */
+/* 5 /\* Shift past msb of 32-bit word *\/ */
+/* 6 int beyond_msb = 1 << 32; */
+/* 7 */
+/* 8 /\* set_msb is nonzero when word size >= 32 */
+/* 9 beyond_msb is zero when word size <= 32 *\/ */
+/* 10 return set_msb && !beyond_msb; */
+/* 11 } */
+
+#include <assert.h>
+
+/* A. */
+/* The number shifted should be less than data size(<32 in this case). */
+
+/* B. */
+int int_size_is_32_B(){
+  int set_msb = 1 << 31;
+  int beyond_msb = 2 << 31;
+
+  return set_msb && !beyond_msb;
+}
+
+/* C. */
+int int_size_is_32_C() {
+  int set_msb = 1 << 15 << 15 << 1;
+  int beyond_msb = 1 << 15 << 15 << 2;
+
+  return set_msb && !beyond_msb;
+}
+
+static void test() {
+  int rst = sizeof(int) == 4 ? 1 : 0;
+  assert(int_size_is_32_B() == rst);
+  assert(int_size_is_32_C() == rst);
+}
+
+int main() {
+  test();
+
+  return 0;
+}

@@ -34,20 +34,30 @@ int sra(int x, int k) {
 	// in case k == 0
 	unsigned mask = (k_ones << 1) << (word_size - k - 1);
 
-	return xsrl | mask;
+	return (x < 0) ? xsrl | mask : xsrl;
 }
 
 static void test() {
 	unsigned ux = ~0;
+	unsigned ux2 = 1;
 	int ix = ~0;
+	int ix2 = 1;
 
 	assert(srl(ux, 0) == ux);
 	assert(srl(ux, 9) == (ux >> 9));
 	assert(srl(ux, 31) == (ux >> 31));
+	
+	assert(srl(ux2, 0) == ux2);
+	assert(srl(ux2, 9) == (ux2 >> 9));
+	assert(srl(ux2, 31) == (ux2 >> 31));
 
 	assert(sra(ix, 0) == ix);
 	assert(sra(ix, 9) == (ix >> 9));
 	assert(sra(ix, 31) == (ix >> 31));		   
+
+	assert(sra(ix2, 0) == ix2);
+	assert(sra(ix2, 9) == (ix2 >> 9));
+	assert(sra(ix2, 31) == (ix2 >> 31));		   
 }
 
 
