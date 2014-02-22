@@ -1,0 +1,16 @@
+Consider the following two 9-bit floating-point representations based on the IEEE
+floating-point format.
+1. Format A
+There is one sign bit.
+There are k = 5 exponent bits. The exponent bias is 15.
+There are n = 3 fraction bits.
+2. Format B
+There is one sign bit.
+There are k = 4 exponent bits. The exponent bias is 7.
+There are n = 4 fraction bits.
+Below, you are given some bit patterns in Format A, and your task is to convert
+them to the closest value in Format B. If rounding is necessary, you should round
+toward +∞. In addition, give the values of numbers given by the Format A and
+Format B bit patterns. Give these as whole numbers (e.g., 17) or as fractions (e.g.,
+17/64 or 17/26).
+

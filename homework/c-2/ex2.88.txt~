@@ -1,0 +1,3 @@
+We are running programs on a machine where values of type int have a 32-
+bit two’s-complement representation. Values of type float use the 32-bit IEEE
+format, and values of type double use the 64-bit IEEE format.

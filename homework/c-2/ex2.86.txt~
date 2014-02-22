@@ -1,0 +1,26 @@
+Consider a 16-bit floating-point representation based on the IEEE floating-point
+format, with one sign bit, seven exponent bits (k = 7), and eight fraction bits
+(n = 8). The exponent bias is 27−1 − 1 = 63.
+Fill in the table that follows for each of the numbers given, with the following
+instructions for each column:
+Hex:
+M:
+E:
+V:
+The four hexadecimal digits describing the encoded form.
+The value of the significand. This should be a number of the
+form x or x , where x is an integer, and y is an integral
+y
+67
+1
+power of 2. Examples include: 0, 64 , and 256 .
+The integer value of the exponent.
+The numeric value represented. Use the notation x or
+x × 2z , where x and z are integers.
+
+As an example, to represent the number 8 , we would have s = 0, M = 4 , and
+E = −1. Our number would therefore have an exponent field of 0x3E (decimal
+value 63 − 1 = 62) and a significand field 0xC0 (binary 110000002 ), giving a hex
+representation 3EC0.
+You need not fill in entries marked “—”.
+

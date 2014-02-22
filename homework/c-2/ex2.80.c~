@@ -1,0 +1,9 @@
+/* Write C expressions to generate the bit patterns that follow, where a k represents */
+/* k repetitions of symbol a. Assume a w-bit data type. Your code may contain */
+/* references to parameters j and k, representing the values of j and k, but not a */
+/* parameter representing w. */
+/* A. 1w−k 0k */
+/* B. 0w−k−j 1k 0j */
+
+#include <assert.h>
+

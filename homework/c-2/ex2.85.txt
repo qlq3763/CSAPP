@@ -1,0 +1,21 @@
+Intel-compatible processors also support an “extended precision” floating-point
+format with an 80-bit word divided into a sign bit, k = 15 exponent bits, a single
+integer bit, and n = 63 fraction bits. The integer bit is an explicit copy of the
+implied bit in the IEEE floating-point representation. That is, it equals 1 for
+normalized values and 0 for denormalized values. Fill in the following table giving
+the approximate values of some “interesting” numbers in this format:
+
+
+                                        Extended precision
+Description                          Value                      Decimal
+Smallest positive denormalized      
+Smallest positive normalized
+Largest normalized
+
+let bias = 2^14 - 1
+1. smallest positive denormalized: E = 1 - bias, f = 2^-63, M = f, V = M.2^E
+
+2. smallest positive normalized: E = 1 - bias, f = 0, M = 1 + f, V = M.2^E
+
+3. largest normalized: E = 2^15 - 2 - bias, f = (1 - 2^-63), M = 1 + f, V = M.2^E
+(exponent can not be all 1(s) here, for that is denormalized)
