@@ -1,0 +1,10 @@
+// to be copied, should be put in separate functions.
+// for just the exercises, just use it as it is.
+
+	/* Decompose bit representation into parts */
+	unsigned sign = f >> 31;
+	unsigned exp = (f >> 23) & 0xFF;
+	unsigned frac = f & 0x7FFFFF;
+
+	/* Reassemble bits */
+	return (sign << 31) | (exp << 23) | frac;
