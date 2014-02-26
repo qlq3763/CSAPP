@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# One argument, the directory name
+for file in $1
+do
+    case "$file" in
+	*.c | *.h | *.txt | Makefile | makefile ) continue;;
+	* ) rm "$file";;
+    esac
+done
+
+exit 0
