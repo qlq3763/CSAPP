@@ -1,18 +1,10 @@
 #!/bin/sh
 
-for file in *
-do
-    if [ -d "$file" ]
-    then 
-	rm $file/*.o
-	rm $file/*.a
-	continue
-    fi
+# This script cleans up a specified directory by deleting all files but text files.
 
-    case "$file" in
-	*.sh | *.c | *.h | *.txt | *Makefile | *makefile ) continue;;
-	* ) rm "$file";;
-    esac
-done
+# one argument: the directory name that needs to clean up
+find $1 -type f -exec file {} \; | grep -v text | cut -d: -f1 | xargs rm
+
+echo "Clean done!"
 
 exit 0

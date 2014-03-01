@@ -1,0 +1,135 @@
+******************ex2.94**********************
+gcc -c -g -Wall -std=gnu99 ex2.94.c
+gcc -o ex2.94 ex2.94.o
+All tests pass!
+u: 80800000, u2: 807fffff, u3: 807ffffe, u4: 807ffffe
+******************ex2.93**********************
+gcc -c -g -Wall -std=gnu99 ex2.93.c
+gcc -o ex2.93 ex2.93.o
+All tests pass!
+******************ex2.92**********************
+gcc -c -g -Wall -std=gnu99 ex2.92.c
+gcc -o ex2.92 ex2.92.o
+all tests pass!
+******************ex2.91**********************
+gcc -c -g -Wall -std=gnu99 ex2.91.c
+gcc -o ex2.91 ex2.91.o
+all tests pass!
+u: ffbfffff, uf: ffbfffff, f: -nan, uf2: ffbfffff
+ ff ff bf ff
+ ff ff bf ff
+******************ex2.89**********************
+gcc -c -g -Wall -std=gnu99 ex2.89.c
+gcc -o ex2.89 ex2.89.o
+******************ex2.84**********************
+gcc -c -g -Wall -std=gnu99 ex2.84.c
+gcc -o ex2.84 ex2.84.o
+
+ j = 40e00000, f = 40e00000, f1 = 40e00000 
+
+ j = 7.000000, f = 7.000000, f1 = 7.000000 
+
+ f2-3 = 16777213.000000, f2-2 = 16777214.000000, f2-1 = 16777215.000000, 
+ f2 = 16777216.000000, 
+ f2+1 = 16777216.000000, f2+2 = 16777218.000000, f2+3 = 16777220.000000 
+******************ex2.83**********************
+gcc -c -g -Wall -std=gnu99 ex2.83.c
+gcc -o ex2.83 ex2.83.o
+
+ -0.000000 
+******************ex2.81**********************
+gcc -c -g -Wall -std=gnu99 ex2.81.c
+gcc -o ex2.81 ex2.81.o
+
+fffffffc
+******************ex2.80**********************
+gcc -c -g -Wall -std=gnu99 ex2.80.c
+gcc -o ex2.80 ex2.80.o
+******************ex2.79**********************
+gcc -c -g -Wall -std=gnu99 ex2.79.c
+gcc -o ex2.79 ex2.79.o
+******************ex2.78**********************
+gcc -c -g -Wall -std=gnu99 ex2.78.c
+gcc -o ex2.78 ex2.78.o
+******************ex2.77**********************
+gcc -c -g -Wall -std=gnu99 ex2.77.c
+gcc -o ex2.77 ex2.77.o
+******************ex2.76**********************
+gcc -c -g -Wall -std=gnu99 ex2.76.c
+gcc -o ex2.76 ex2.76.o
+******************ex2.75**********************
+gcc -c -g -Wall -std=gnu99 ex2.75.c
+gcc -o ex2.75 ex2.75.o
+******************ex2.74**********************
+gcc -c -g -Wall -std=gnu99 ex2.74.c
+gcc -o ex2.74 ex2.74.o
+******************ex2.73**********************
+gcc -c -g -Wall -std=gnu99 ex2.73.c
+gcc -o ex2.73 ex2.73.o
+******************ex2.71**********************
+gcc -c -g -Wall -std=gnu99 ex2.71.c
+gcc -o ex2.71 ex2.71.o
+******************ex2.70**********************
+gcc -c -g -Wall -std=gnu99 ex2.70.c
+gcc -o ex2.70 ex2.70.o
+******************ex2.69**********************
+gcc -c -g -Wall ex2.69.c
+gcc -o ex2.69 ex2.69.o
+******************ex2.68**********************
+gcc -c -g -Wall ex2.68.c
+gcc -o ex2.68 ex2.68.o
+******************ex2.67**********************
+gcc -c -g -Wall ex2.67.c
+gcc -o ex2.67 ex2.67.o
+******************ex2.66**********************
+gcc -c -g -Wall ex2.66.c
+gcc -o ex2.66 ex2.66.o
+******************ex2.65**********************
+gcc -c -g -Wall ex2.65.c
+gcc -o ex2.65 ex2.65.o
+******************ex2.64**********************
+gcc -c -g -Wall ex2.64.c
+ex2.64.c: In function ‘main’:
+ex2.64.c:32:3: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat]
+gcc -o ex2.64 ex2.64.o
+size of int: 4
+******************ex2.63**********************
+gcc -c -g -Wall ex2.63.c
+gcc -o ex2.63 ex2.63.o
+******************ex2.62**********************
+gcc -c -g -Wall ex2.62.c
+gcc -o ex2.62 ex2.62.o
+******************ex2.61**********************
+gcc -c -g -Wall ex2.61.c
+gcc -o ex2.61 ex2.61.o
+******************ex2.60**********************
+gcc -c -g -Wall -std=gnu99 ex2.60.c
+make -C ./lib
+make[1]: Entering directory `/home/ubuntu/code/csapp/CSAPP/homework/c-2/lib'
+gcc -c -g -Wall -std=gnu99 show-bytes.c show-bytes.h
+rm -f c2.a
+ar cr c2.a show-bytes.o
+ranlib c2.a
+make[1]: Leaving directory `/home/ubuntu/code/csapp/CSAPP/homework/c-2/lib'
+gcc -o ex2.60 ex2.60.o lib/c2.a
+ 44 33 22 11
+ cc 33 22 11
+ 44 cc 22 11
+ 44 33 cc 11
+ 44 33 22 cc
+******************ex2.59**********************
+gcc -c -g -Wall ex2.59.c
+gcc -o ex2.59 ex2.59.o lib/c2.a
+ 44 33 22 11 00 00 00 00
+ dd cc bb aa 00 00 00 00
+ 44 cc bb aa 00 00 00 00
+******************ex2.58**********************
+gcc -c -g -Wall ex2.58.c
+gcc -o ex2.58 ex2.58.o
+is little endian: true
+******************ex2.57**********************
+gcc -c -g -Wall ex2.57.c
+gcc -o ex2.57 ex2.57.o lib/c2.a
+ ab 34
+ bb aa 22 11 00 00 00 00
+ 00 00 00 00 00 00 f0 3f

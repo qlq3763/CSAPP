@@ -1,0 +1,4 @@
+Following the bit-level floating-point coding rules, implement the function with
+the following prototype:
+/* Compute (float) i */
+float_bits float_i2f(int i);

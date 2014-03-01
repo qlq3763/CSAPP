@@ -1,18 +1,9 @@
 #!/bin/sh
 
-for file in *
-do
-    if [ -d "$file" ]
-    then 
-	rm $file/*.o
-	rm $file/*.a
-	continue
-    fi
+# Clean up current directory(pwd): leave just text files
 
-    case "$file" in
-	*.sh | *.c | *.h | *.txt | *Makefile | *makefile ) continue;;
-	* ) rm "$file";;
-    esac
-done
+../clean.sh $(pwd)
+
+rm test.out
 
 exit 0
