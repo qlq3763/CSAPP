@@ -1,0 +1,54 @@
+/* The following code computes the product of x and y and stores the result in */
+/* memory. Data type ll_t is defined to be equivalent to long long. */
+/* typedef long long ll_t; */
+/* void store_prod(ll_t *dest, int x, ll_t y) { */
+/* *dest = x*y; */
+/* } */
+/* gcc generates the following assembly code implementing the computation: */
+
+/* movl 16(%ebp), %esi */
+/* movl 12(%ebp), %eax */
+/* movl %eax, %edx */
+/* sarl $31, %edx */
+/* movl 20(%ebp), %ecx */
+/* imull %eax, %ecx */
+/* movl %edx, %ebx */
+/* imull %esi, %ebx */
+/* addl %ebx, %ecx */
+/* mull %esi */
+/* leal (%ecx,%edx), %edx */
+/* movl 8(%ebp), %ecx */
+/* movl %eax, (%ecx) */
+/* movl %edx, 4(%ecx) */
+
+/* This code uses three multiplications to implement the multiprecision arith- */
+/* metic required to implement 64-bit arithmetic on a 32-bit machine. Describe the */
+/* algorithm used to compute the product, and annotate the assembly code to show */
+/* how it realizes your algorithm. Hint: See Problem 3.12 and its solution. */
+
+///////////////////////////////////////////////////////////////////////
+movl 16(%ebp), %esi // get yl
+movl 12(%ebp), %eax // get x(xl)
+movl %eax, %edx
+sarl $31, %edx // get xh
+movl 20(%ebp), %ecx // get yh
+imull %eax, %ecx // xl * yh (notice if overflow, just ignore, because that can NOT be represented by 64-bit)
+movl %edx, %ebx 
+                 // (will not overflow here: xh is either 0 or -1)
+imull %esi, %ebx // xh * yl (notice if overflow, just ignore, because that can NOT be represented by 64-bit)
+
+addl %ebx, %ecx // xl * yh + xh * yl (notice if overflow, just ignore, because that can NOT be represented by 64-bit)
+mull %esi // xl * yl, result at %edx:%eax (here, must take care of the overflow, they just overflow to the higher 32-bit)
+leal (%ecx,%edx), %edx // add the higher 32-bit together
+movl 8(%ebp), %ecx
+movl %eax, (%ecx) // store lower 32-bit 
+movl %edx, 4(%ecx) // store higher 32-bit 
+
+view 64-bit long long as two 32-bit ints: then suppose x = xh*2^32 + xl; y = yh * 2^32 + yl.
+Here xh means higher 32 bit of x, xl means lower 32 bits of x and the same for yh and yl.
+So 
+x * y = 
+(xh*2^32 + xl) * (yh * 2^32 + yl) = 
+xh*yh*2^64 + xh*yl*2^32 + xl*yh*2^32 + xl*yl = 
+xh*yl*2^32 + xl*yh*2^32 + xl*y.
+(The 2^64 part will be modular away)

@@ -1,0 +1,45 @@
+/* The following code computes the product of x and y and stores the result in */
+/* memory. Data type ll_t is defined to be equivalent to long long. */
+/* typedef long long ll_t; */
+/* void store_prod(ll_t *dest, int x, ll_t y) { */
+/* *dest = x*y; */
+/* } */
+/* gcc generates the following assembly code implementing the computation: */
+
+/* movl 16(%ebp), %esi */
+/* movl 12(%ebp), %eax */
+/* movl %eax, %edx */
+/* sarl $31, %edx */
+/* movl 20(%ebp), %ecx */
+/* imull %eax, %ecx */
+/* movl %edx, %ebx */
+/* imull %esi, %ebx */
+/* addl %ebx, %ecx */
+/* mull %esi */
+/* leal (%ecx,%edx), %edx */
+/* movl 8(%ebp), %ecx */
+/* movl %eax, (%ecx) */
+/* movl %edx, 4(%ecx) */
+
+/* This code uses three multiplications to implement the multiprecision arith- */
+/* metic required to implement 64-bit arithmetic on a 32-bit machine. Describe the */
+/* algorithm used to compute the product, and annotate the assembly code to show */
+/* how it realizes your algorithm. Hint: See Problem 3.12 and its solution. */
+
+///////////////////////////////////////////////////////////////////////
+/* movl 16(%ebp), %esi // get lower 4 bytes of y */
+/* movl 12(%ebp), %eax // get x */
+/* movl %eax, %edx  */
+/* sarl $31, %edx // sign extend x to 64 bit at %edx:%eax */
+/* movl 20(%ebp), %ecx // get higher 4 bytes of y */
+/* imull %eax, %ecx */
+/* movl %edx, %ebx */
+/* imull %esi, %ebx */
+/* addl %ebx, %ecx */
+/* mull %esi */
+/* leal (%ecx,%edx), %edx */
+/* movl 8(%ebp), %ecx */
+/* movl %eax, (%ecx) */
+/* movl %edx, 4(%ecx) */
+
+    /* view 64-bit long long as two 32-bit ints: then suppose x = xh*2^32 + xl; y = yh * 2^32 + yl. */
