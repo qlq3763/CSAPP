@@ -1,0 +1,12 @@
+/* Consider the following source code, where E1 and E2 are macro expressions de- */
+/* clared with #define that compute the dimensions of array A in terms of parameter */
+/* n. This code computes the sum of the elements of column j of the array. */
+
+/* int sum_col(int n, int A[E1(n)][E2(n)], int j) { */
+/*     int i; */
+/*     int result = 0; */
+/*     for (i = 0; i < E1(n); i++) */
+/*         result += A[i][j]; */
+/*     return result; */
+/* } */
+/* In compiling this program, gcc generates the following assembly code: */

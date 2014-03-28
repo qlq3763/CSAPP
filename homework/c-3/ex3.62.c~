@@ -1,0 +1,2 @@
+/* The following code transposes the elements of an M × M array, where M is a */
+/* constant defined by #define: */

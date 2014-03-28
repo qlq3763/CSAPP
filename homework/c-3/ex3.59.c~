@@ -1,0 +1,3 @@
+This problem will give you a chance to reverse engineer a switch statement from
+machine code. In the following procedure, the body of the switch statement has
+been removed:

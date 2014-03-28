@@ -1,0 +1,16 @@
+/* Consider the following union declaration: */
+
+union ele {
+    struct {
+        int *p;
+        int y;
+    } e1;
+    struct {
+        int x;
+        union ele *next;
+    } e2;
+};
+
+/* This declaration illustrates that structures can be embedded within unions. */
+/* The following procedure (with some expressions omitted) operates on a */
+/* linked list having these unions as list elements: */
