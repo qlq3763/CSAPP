@@ -1,0 +1,51 @@
+* phase 1: 
+just string comparation.
+
+* phase 2: 
+six numbers, n1 = 1, and nk = k * n(k-1), for k > 1
+One strange behavior: if I don't add a space after the last number,
+the last decimal bit get lost when parsed by the program. Do NOT know
+why. 
+
+* phase 3:
+suppose:
+sscanf(str, "%d %c %d", &b, &c, &a);
+
+The program uses b as an index into a jumb table, with different value
+of b, there are corresponding values for a and c. (b can be any value
+in [0, 7].
+
+And I chose b = 0, then a = 0x309 = 777, c = 0x71 = 'q'
+
+* phase 4:
+func4 computes fib(n), with fib(n) = fib(n-1) + fib(n-2).
+phase_4 requires that func4(n) = fib(n) = 0x37 = 55, so 
+n = 9.
+
+* phase 5:
+use the least 4 bits of each character as the index into another
+string. 
+
+final string to get: "giants"
+string to selected from:  "isrveawhobpnutfg\260\001",
+
+index of g,i,a,n,t,s: 
+15(g), 0(i), 5(a), 11(n), 13(t), 1(s)
+f,     0,     5,     b,     d,     1
+o(6f)  p(70)  e(65), k(6b)  m(6d)  a(61) (all hex) 
+
+* phase 6:
+let call the structure invovled a_struct.
+there is a list structure starting at 0x804b26c, and the next pointer
+is stored at offset 8. 
+
+the program sorted the list, so that the value of the list are in
+non-increasing order.
+
+a sequence of pointer to a_struct are stored at starting address
+%ebp-0x30, the program sort the orginal list by first copy pointers to
+this sequence so that the pointer stored at the first tab has the
+largest value, the second second largest value, and so on. 
+
+after this, the program reconstruct the link by restroing the next
+pointer. 
